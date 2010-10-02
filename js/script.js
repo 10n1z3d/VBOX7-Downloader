@@ -6,10 +6,11 @@ function createDownloadButton(data) {
 
     var downloadUrl = document.createElement("a");
     downloadUrl.setAttribute("href", data.match(/&videoFile=(.*)+&/)[1])
-    downloadUrl.setAttribute("alt", "Свали");
 
     var downloadImage = document.createElement("img");
-    downloadImage.setAttribute("src", "chrome-extension://ipdgaigpbpgbfgdjkcieghkmchpdppod/img/download.png");
+    downloadImage.setAttribute("src", "chrome-extension://odiojghccdmmchgjgklkacpfppodidod/img/download.png");
+    downloadImage.setAttribute("alt", "Свали");
+    downloadImage.setAttribute("title", "Свали");
 
     downloadUrl.appendChild(downloadImage);
     controlBtn.appendChild(downloadUrl);
