@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function fetchVideoUrl(callback, videoId) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        callback(xmlhttp.responseText);
+                    }
+                };
+                
+                xmlhttp.open("POST", "http://www.vbox7.com/play/magare.do", true);
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send("vid=" + videoId);
+            }
+            
+            function onRequest(request, sender, callback) {
+                if (request.action == 'fetchVideoUrl') {
+                    fetchVideoUrl(callback, request.videoId);
+                }
+             }
+
+            chrome.extension.onRequest.addListener(onRequest);
+        </script>
+    </head>
+</html>
